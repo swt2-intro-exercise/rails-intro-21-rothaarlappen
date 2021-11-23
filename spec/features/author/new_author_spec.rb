@@ -25,4 +25,12 @@ describe "New author page", type: :feature do
     @author.last_name = 'Test'
     expect(@author).to be_valid
   end 
+  it "should show validation error on author creation" do 
+    visit new_author_path
+    page.fill_in 'author[first_name]', with: 'KeineAhnung'
+    page.fill_in 'author[homepage]', with: 'WTF.com'
+    find('input[type="submit"]').click
+    expect(page).to have_text('error prohibited this author from being saved:')
+  end 
+
 end
