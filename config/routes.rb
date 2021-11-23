@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post '/authors/new' => 'authors#create'
   
-  get   '/authors/:id' => 'authors#show'
+  get   '/authors/:first_name' => 'authors#show'
 
 
   # Example resource route (maps HTTP verbs to controller actions automatically):

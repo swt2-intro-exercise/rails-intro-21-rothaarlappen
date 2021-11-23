@@ -6,8 +6,8 @@ class AuthorsController < ApplicationController
     end 
 
     def show
-        print(params[:id])
-        @author = Author.find_by first_name: params[:id]
+        @author = FactoryBot.create :author
+        puts(@author)
         redirect_to root_path, notice: 'Folgender Author wurde gefunden: ' + @author.first_name + " " + @author.last_name + " " + @author.homepage
     end
 
