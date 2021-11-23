@@ -1,5 +1,8 @@
 <h1>Edit Paper</h1>
  
+
+<%= render 'form', paper: @paper %>
+
 <%= form_with(model: @paper, local: true) do |form| %>
 <p>
     <%= form.select 'author_ids',
