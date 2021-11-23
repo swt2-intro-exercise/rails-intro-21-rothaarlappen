@@ -31,6 +31,13 @@ class AuthorsController < ApplicationController
         end
     end
 
+    def destroy
+        @author = Author.find(params[:id])
+        @author.destroy
+       
+        redirect_to author_path
+      end
+
 
     def show
         @author = FactoryBot.create :author
