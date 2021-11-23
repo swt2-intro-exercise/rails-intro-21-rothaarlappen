@@ -19,4 +19,10 @@ describe "New author page", type: :feature do
     page.fill_in 'author[homepage]', with: 'WTF.com'
     find('input[type="submit"]').click
   end 
+  it "shouldn't be valid to create an author without lastname" do 
+    @author = Author.new 
+    expect(@author).to_not be_valid
+    @author.last_name = 'Test'
+    expect(@author).to be_valid
+  end 
 end
