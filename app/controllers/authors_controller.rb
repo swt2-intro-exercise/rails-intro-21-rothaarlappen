@@ -11,6 +11,7 @@ class AuthorsController < ApplicationController
         @author = Author.find(params[:id])
     end
 
+    
     def create
         @author = Author.new(author_params)
 
