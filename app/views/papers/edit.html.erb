@@ -1,7 +1,6 @@
 <h1>Edit Paper</h1>
  
 
-<%= render 'form', paper: @paper %>
 
 <%= form_with(model: @paper, local: true) do |form| %>
 <p>
@@ -10,4 +9,23 @@
     {},
     multiple: true, size: 10 %>
  <p>
+
+ <div class="field">
+ <%= form.label :title %>
+ <%= form.text_field :title %>
+</div>
+
+<div class="field">
+ <%= form.label :venue %>
+ <%= form.text_field :venue %>
+</div>
+
+<div class="field">
+ <%= form.label :year %>
+ <%= form.number_field :year %>
+</div>
+<p>
+ <%= form.submit %>
+</p>
+
 <% end %>
