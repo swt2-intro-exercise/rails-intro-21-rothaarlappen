@@ -1,6 +1,16 @@
-<h1>Editing Paper</h1>
+<h1>Edit Paper</h1>
+ 
+<%= form_with(model: @paper, local: true) do |form| %>
+<p>
+    <%= form.select 'author_ids',
+    options_from_collection_for_select(Author.all, :id, :name, @paper.author_ids),
+    {},
+    multiple: true, size: 10 %>
+ <p>
 
-<%= render 'form', paper: @paper %>
+ 
+<p>
+ <%= form.submit %>
+</p>
 
-<%= link_to 'Show', @paper %> |
-<%= link_to 'Back', papers_path %>
+<% end %>
