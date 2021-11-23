@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/authors/new' => 'authors#create'
   
   get   '/authors/:first_name' => 'authors#show'
+  get   '/authors(.:format)'    => 'authors#index'
 
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
