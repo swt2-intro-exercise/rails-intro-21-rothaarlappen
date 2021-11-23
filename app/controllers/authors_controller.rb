@@ -7,6 +7,10 @@ class AuthorsController < ApplicationController
         @authors = Author.all
     end 
 
+    def edit
+        @author = Author.find(params[:id])
+    end
+
     def create
         @author = Author.new(author_params)
 
@@ -16,6 +20,17 @@ class AuthorsController < ApplicationController
             render 'new'    
         end    
     end 
+
+    def update
+        @author = Author.find(params[:id])
+       
+        if @author.update(author_params)
+          redirect_to @author
+        else
+          render 'edit'
+        end
+    end
+
 
     def show
         @author = FactoryBot.create :author
