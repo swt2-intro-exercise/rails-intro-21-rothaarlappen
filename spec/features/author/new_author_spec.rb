@@ -12,4 +12,11 @@ describe "New author page", type: :feature do
     expect(page).to have_field('author[last_name]')
     expect(page).to have_field('author[homepage]')
   end
+  it "should save the author in database after filling in inputs and submitting" do 
+    visit new_author_path
+    page.fill_in 'author[last_name]', with: 'Dijkstra'
+    page.fill_in 'author[first_name]', with: 'KeineAhnung'
+    page.fill_in 'author[homepage]', with: 'WTF.com'
+    find('input[type="submit"]').click
+  end 
 end
