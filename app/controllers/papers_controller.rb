@@ -3,7 +3,10 @@ class PapersController < ApplicationController
 
   # GET /papers
   def index
-    @papers = Paper.all
+    sql = 'year = ' + params[:year]
+    puts("SQL...........................................................")
+    puts(sql)
+    @papers = Paper.where(sql) 
   end
 
   # GET /papers/1
